@@ -119,9 +119,11 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   return newRequire;
 })({"script.js":[function(require,module,exports) {
 var confTable = document.getElementById("conference-table");
+var tableHeadings = ["Name", "Date", "Time", "Minimum Donation", "Keynote", "Category", "Workshop Example", "Talk Example"];
 
 var loadTable = function loadTable() {
   var table = document.createElement("table");
+  var headingTr = document.createElement("tr");
   confTable.appendChild(table);
 };
 
