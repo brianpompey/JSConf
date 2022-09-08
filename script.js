@@ -1,4 +1,5 @@
 const confTable = document.getElementById("conference-table");
+let allConferences = [];
 
 const tableHeadings = [
   "Name",
@@ -11,12 +12,23 @@ const tableHeadings = [
   "Talk Example",
 ];
 
-const loadTable = () => {
-  let table = document.createElement("table");
-  let headingTr = document.createElement("tr");
+// const loadTable = () => {
+//   let table = document.createElement("table");
+//   let headingTr = document.createElement("tr");
 
-  confTable.appendChild(table);
+//   confTable.appendChild(table);
+// };
+
+const loadConferences = async () => {
+  try {
+    const res = await fetch("http://localhost:3000/api/v1/conferences/index");
+    allConferences = await res.json;
+    console.log(allConferences);
+  } catch (err) {
+    console.log(err);
+  }
 };
 
-loadTable();
+// loadTable();
 console.log("Hello World");
+loadConferences();
