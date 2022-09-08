@@ -121,7 +121,8 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 var confTable = document.getElementById("conference-table");
 
 var loadTable = function loadTable() {
-  confTable.innerHTML = "Hello World";
+  var table = document.createElement("table");
+  confTable.appendChild(table);
 };
 
 loadTable();

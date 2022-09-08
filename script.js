@@ -1,7 +1,9 @@
 const confTable = document.getElementById("conference-table");
 
 const loadTable = () => {
-  confTable.innerHTML = "Hello World";
+  let table = document.createElement("table");
+
+  confTable.appendChild(table);
 };
 
 loadTable();
