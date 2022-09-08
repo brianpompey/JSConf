@@ -19,16 +19,27 @@ const tableHeadings = [
 //   confTable.appendChild(table);
 // };
 
-const loadConferences = async () => {
-  try {
-    const res = await fetch("http://localhost:3000/api/v1/conferences/index");
-    allConferences = await res.json;
-    console.log(allConferences);
-  } catch (err) {
-    console.log(err);
-  }
+const loadConferences = () => {
+  fetch("http://localhost:3000/api/v1/conferences/index")
+    .then((res) => {
+      console.log("resolved", res);
+      return res.json();
+    })
+    .then((data) => {
+      allConferences = data;
+      console.log(allConferences);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+  //     allConferences = res.json;
+  //     console.log(allConferences);
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
 };
 
 // loadTable();
 console.log("Hello World");
 loadConferences();
+// console.log(fetch("http://localhost:3000/api/v1/conferences/index"));
